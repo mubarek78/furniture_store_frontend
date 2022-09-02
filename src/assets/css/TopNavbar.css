@@ -1,0 +1,10 @@
+/* Top navbar Style */
+#top_navbar {
+    background-color: #ebebeb;
+    padding: 10px 1px;
+}
+
+.top_navbar_desc p {
+    color: hwb(220 2% 92%);
+    font-size: 14px;
+}
