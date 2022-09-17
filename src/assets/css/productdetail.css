@@ -1,0 +1,117 @@
+#product_detail{
+    margin: 30px 0;
+}
+
+#product_detail .wraper{
+    background-color: rgb(235, 235, 235);
+}
+
+.product_detail_img{
+    height: 700px;
+}
+
+.product_quantity_box{
+    display: flex;
+    padding: 30px 0;
+    border-bottom: 1px dotted gray;
+    border-top: 1px dotted gray;
+}
+
+
+.product_rating{
+    display: flex;
+    align-items: center;
+    justify-content: left;
+    margin: 20px 0;
+}
+
+
+.review_number{
+    font-size: 1.2rem;
+    margin-left: 5px;
+    margin-top: 2px;
+}
+
+#product_detail .price{
+    color: rgb(255, 194, 104);
+    margin: 20px 0;
+}
+
+#product_detail .desc{
+    margin: 40px 0;
+}
+
+.size_selection_box{
+    margin: 40px 0;
+}
+
+.dimention{
+    margin-right: 40px;
+}
+
+.dimention_select{
+    padding: 12px 60px;
+    border: 1px dotted gray;
+    border-radius: 15px;
+    background: transparent;
+}
+
+.dimention_select option{
+    font-size: 1rem;
+    background-color: transparent;
+}
+
+.quantity_change{
+    display: flex;
+}
+
+.quantity_change button{
+    width: 55px;
+    height: 55px;
+    border: 1px dotted gray;
+    border-radius: 50%;
+    background-color: transparent;
+    font-weight: 500;
+
+}
+
+.quantity_change input{
+    width: 80px;
+    height: 55px;
+    background: transparent;
+    margin: 0 7px;
+    text-align: center;
+    border-radius: 15px;
+    font-size: 1.5rem;
+}
+
+
+
+.Product_link_btns .add_to_fav{
+    height: 55px;
+    width: 65px;
+    background: rgb(198, 198, 198);
+    margin: 0 10px;
+    border: 1px dotted gray;
+    border-radius: 15px;
+    transition: (--transition);
+}
+
+.add_to_fav:hover{
+    background: rgb(232, 232, 232);
+}
+.Product_link_btns .add_to_cart{
+    height: 55px;
+    width: 150px;
+    background: rgb(227, 165, 66);
+    margin: 0 10px;
+    border: 1px dotted rgb(128, 128, 128);
+    border-radius: 15px;
+    font-size: 1.2rem;
+    font-weight: 600;
+}
+
+
+#related_product{
+    margin: 100px 0;
+}

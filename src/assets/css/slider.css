@@ -1,0 +1,150 @@
+.bg1 {
+    background-image: url('../image/slider/slider1.jpg');
+}
+
+.bg2 {
+    background-image: url('../image/slider/slider2.jpg');
+}
+
+.bg3 {
+    background-image: url('../image/slider/slider3.jpg');
+}
+
+
+.slider {
+    background-position: center center;
+    background-size: cover;
+    padding: 200px 0;
+}
+
+.slider_content h5 {
+    transform: translateY(-200px);
+}
+
+.slider_content h2 {
+    padding: 35px 0;
+    font-size: 60px;
+    font-weight: 700;
+    transform: translateY(-200px);
+}
+
+.slider_content a {
+    opacity: 0;
+    transform: translateY(200px);
+}
+
+.slider_content p {
+    padding-bottom: 30px;
+    opacity: 0;
+    transform: translateY(200px);
+}
+
+#slider .slick-active .slider_content h5 {
+    opacity: 0;
+    animation-direction: normal;
+    -webkit-animation: top-to-bottom 3s linear 1.75s 1 normal;
+    -moz-animation: top-to-bottom 3s linear 1.75s 1 alternate-reverse;
+    -ms-animation: top-to-bottom 3s linear 1.75s 1 alternate-reverse;
+    -o-animation: top-to-bottom 3s linear 1.75s 1 alternate-reverse;
+    animation-fill-mode: forwards;
+}
+
+ .slick-active .slider_content h2 {
+    opacity: 0;
+    animation-direction: normal;
+    -webkit-animation: top-to-bottom 3s linear 1.75s 1 normal;
+    -moz-animation: top-to-bottom 3s linear 1.75s 1 alternate-reverse;
+    -ms-animation: top-to-bottom 3s linear 1.75s 1 alternate-reverse;
+    -o-animation: top-to-bottom 3s linear 1.75s 1 alternate-reverse;
+    animation-fill-mode: forwards;
+}
+
+ .slick-active .slider_content p {
+    animation-direction: normal;
+    -webkit-animation: red-to-black 3s linear 1.7s 1 normal;
+    -moz-animation: red-to-black 3s linear 1.7s 2 normal;
+    -ms-animation: red-to-black 3s linear 1s 2 normal;
+    -o-animation: red-to-black 3s linear 1s 2 normal;
+    animation-fill-mode: forwards;
+}
+
+ .slick-active .slider_content a {
+    animation-direction: normal;
+    -webkit-animation: red-to-black 3s linear 1.7s 1 normal;
+    -moz-animation: red-to-black 3s linear 1.7s 1 normal;
+    -ms-animation: red-to-black 3s linear 1.75s 1 normal;
+    -o-animation: red-to-black 3s linear 1.75s 1 normal;
+    animation-fill-mode: forwards;
+    
+}
+
+
+
+#about-me {
+   
+    animation-direction: normal;
+   
+    -webkit-animation: red-to-black 3s linear 1.75s 1 normal;
+    -moz-animation: red-to-black 3s linear 1.75s 1 alternate-reverse;
+    -ms-animation: red-to-black 3s linear 1.75s 1 alternate-reverse;
+    -o-animation: red-to-black 3s linear 1.75s 1 alternate-reverse;
+    animation-fill-mode: forwards;
+  }
+  
+  @keyframes red-to-black {
+  
+    10% {
+      /* background: red; */
+      transform: translate(0px, 0px);
+      opacity: 0.5;
+    }
+    25% {
+      /* background: red; */
+      transform: translate(0px, 60px);
+      opacity: 0.6;
+    }
+  
+    55% {
+      /* background: yellow; */
+      transform: translate(0px, 100px);
+      opacity: 0.7;
+    }
+   
+   
+  
+    100% {
+      /* background: black; */
+      transform: translate(0px, 0px);
+      opacity: 1;
+    }
+  }
+
+
+
+  @keyframes top-to-bottom {
+  
+    10% {
+      /* background: red; */
+      transform: translate(0px, 0px);
+      opacity: 0.5;
+    }
+    25% {
+      /* background: red; */
+      transform: translate(0px, -60px);
+      opacity: 0.6;
+    }
+  
+    55% {
+      /* background: yellow; */
+      transform: translate(0px, -100px);
+      opacity: 0.7;
+    }
+   
+   
+  
+    100% {
+      /* background: black; */
+      transform: translate(0px, 0px);
+      opacity: 1;
+    }
+  }

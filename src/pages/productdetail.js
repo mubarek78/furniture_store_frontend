@@ -1,24 +1,21 @@
 import React from 'react'
 import TopNavbar from '../components/Nav/TopNavbar'
 import Nav from '../components/Nav'
-import Sidebar from '../components/Nav/Sidebar'
-import Slid from '../components/Slider'
-import TopProduct from '../components/TopProducts'
-import PopularProduct from '../components/PopularProducts'
+import ProductDetails from '../components/ProductsDetail/ProductDetails'
 import Features from '../components/Features/Features'
 import Footer from '../components/Footer'
-function Home() {
+
+
+function Productdetail() {
   return (
     <>
         <TopNavbar />
         <Nav />
-        <Slid />
-        <TopProduct />
-        <PopularProduct />
+        <ProductDetails />
         <Features />
         <Footer />
     </>
   )
 }
 
-export default Home
+export default Productdetail
