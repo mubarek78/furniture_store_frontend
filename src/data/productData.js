@@ -213,7 +213,7 @@ export const ProductData = [
         description: `Denali has a contemporary look within its shape. This chair can be a set for your 
         dining table as well as can be used as an accent chair for the distinguished look.`,
         rating: {
-            rate: 4.2,
+            rate: 4.3,
             count: 20
         },
         color: [

@@ -29,7 +29,7 @@ const productsSlice = createSlice({
             let { id } = action.payload;
 
             // Check existance
-            let item = state.carts.find(i => i.id === parseInt(id))
+            let item = state.carts.find(item => item.id === parseInt(id))
             if (!item) {
                 // Get Product
                 let arr = state.products.find(item => item.id === parseInt(id))

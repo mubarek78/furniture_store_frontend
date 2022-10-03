@@ -26,7 +26,6 @@ const ProductCard = (props) => {
                     <div className="product_buttons_box">
                         <ul className="product_buttons_btn">
                             <li><a href="#" onClick={() => addToFav(props.data.id)} ><i className="fa fa-heart"></i></a></li>
-                            {/* <li><a href="#" onClick={() => setModalShow(true)} > <i className="fa fa-arrows-alt"></i></a></li> */}
                             <li><a href="#" onClick={() => addToCart(props.data.id)}><i className="fa fa-cart-plus"></i></a></li>
                         </ul>
                     </div>

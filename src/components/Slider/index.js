@@ -39,59 +39,6 @@ const Slid = () => {
     return (
         <>
     <section id="slider">
-      {/* <div className="slider_box">
-      <Slider {...settings}>
-        <div className="slider  bg1">
-          <div className="container">
-            <div className="row">
-              <div className="col-lg-6 col-md-8 col-sm-12 col-12">
-                <div className="slider_content">
-                <h5> $3140+ Free Shipping</h5>
-                  <h2> Noah Sectional</h2>
-                  <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. 
-                    Phasellus blandit massa enim. Nullam id varius nunc id varius nunc.</p>
-                  <Link to="/shop" className="theme-btn-one bg-black btn_sm">Shop Now</Link>
-                </div>
-              </div>
-            </div>
-          </div>
-        </div>
-        <div className="slider  bg2">
-          <div className="container">
-            <div className="row">
-              <div className="col-lg-6">
-                <div className="slider_content">
-                <h5> $2545+ Free Shipping</h5>
-                  <h2> ZAFFERANO MODERN</h2>
-                  <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. 
-                    Phasellus blandit massa enim. Nullam id varius nunc id varius nunc.</p>
-                    <Link to="/shop" className="theme-btn-one bg-black btn_sm">Shop Now</Link>
-                </div>
-              </div>
-            </div>
-          </div>
-        </div>
-        <div className="slider  bg3">
-          <div className="container">
-            <div className="row">
-              <div className="col-lg-6">
-                <div className="slider_content">
-                  <h5> $1595+ Free Shipping</h5>
-                  <h2> Hamilton Chaise</h2>
-                  <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. 
-                    Phasellus blandit massa enim. Nullam id varius nunc id varius nunc.</p>
-                    <Link to="/shop" className="theme-btn-one bg-black btn_sm">Shop Now</Link>
-                </div>
-              </div>
-            </div>
-          </div>
-        </div>
-        </Slider>
-      </div> */}
-
-
-  
-      
       <Slider {...settings}>
       {slides.map((data, index) => (
         <div className={`${data.slide} ${data.bg}`}>
