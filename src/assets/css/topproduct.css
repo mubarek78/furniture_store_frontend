@@ -35,25 +35,32 @@
 
 .btn-container {
     margin-bottom: 4rem;
-    width: 100%;
+    margin: 60px auto 35px;
+    width: 60%;
     display: flex;
     justify-content: space-between;
     align-items: center;
-    background-color: aquamarine;
+    /* background-color: aquamarine; */
   }
   .filter-btn {
-    background: red;
+    /* background: red; */
     border-color: transparent;
     font-size: 1rem;
     text-transform: capitalize;
-    margin: 0 10px;
-    letter-spacing: 1px;
-    padding: 0.375rem 0.75rem;
+    /* margin: 0 10px; */
+    /* letter-spacing: 1px; */
+    padding: 0.4rem 0.76rem;
     color: var(--clr-gold);
     cursor: pointer;
     transition: var(--transition);
     border-radius: var(--radius);
   }
+
+  .filter-btn .active {
+    color: var(--main-theme-color) !important;
+    border-bottom: 2px solid var(--main-theme-color);
+}
+
   .filter-btn:hover {
     background: var(--clr-gold);
     color: var(--clr-gray);

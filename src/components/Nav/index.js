@@ -1,7 +1,7 @@
 import React from 'react';
 import Navbar from './Navbar';
 import Sidebar from './Sidebar';
-// import Submenu from './Submenu';
+import Submenu from './Submenu';
 
 // import './index.css';
 function Nav() {
@@ -9,7 +9,7 @@ function Nav() {
     <>
       <Navbar />
       <Sidebar />
-      {/* <Submenu /> */}
+      <Submenu />
     </>
   );
 }

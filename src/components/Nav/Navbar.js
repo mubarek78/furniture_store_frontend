@@ -2,9 +2,12 @@ import React, { useState, useEffect } from 'react'
 import logo from './../../assets/image/svg/logo.svg';
 import { Link } from 'react-router-dom'
 import { useNavigate } from "react-router-dom"
+import { IconContext} from 'react-icons';
 import { FaUser, FaSearch, FaTimes} from 'react-icons/fa';
 import { FcMenu} from 'react-icons/fc';
-import { BiShoppingBag} from 'react-icons/bi';
+import { AiOutlineSearch, AiOutlineUser, AiOutlineMenu} from 'react-icons/ai';
+
+import { BsBag} from 'react-icons/bs';
 import { removeCart, removeFav} from "../../features/products" ;
 import svgsearch from './../../assets/image/svg/search.svg'
 import avater from './../../assets/image/svg/search.svg'
@@ -33,6 +36,7 @@ const Navbar = () => {
 
   const handleClick = () => {
    console.log("clicked")
+  //  dispatch(openSidebar());
 }
 
 
@@ -48,9 +52,26 @@ const removeFromCart = (id) => {
     dispatch(removeCart({id}));
 }
 
+const displaySubmenu = (e) => {
+  const text = e.target.textContent;
+  const tempBtn = e.target.getBoundingClientRect();
+  const center = (tempBtn.left + tempBtn.right) / 2;
+  const bottom = tempBtn.bottom + (window.scrollY + 3);
+    dispatch(
+      openSubmenu({text, center, bottom})
+    );
+  
+};
+
+const handleSubmenu = (e) => {
+  if (!e.target.classList.contains('link-btn')) {
+    dispatch(closeSubmenu());
+  }
+};
+
 return (
     <>
-<nav className='nav header-section' >
+<nav className='nav header-section' onMouseOver={handleSubmenu}>
       <div className='nav-center'>
         <div className='nav-header'>
           <img src={logo} className='nav-logo' alt='' />
@@ -58,22 +79,22 @@ return (
       
         <ul className='nav-links'>
           <li>
-            <button className='link-btn' >
+            <button className='link-btn' onMouseOver={displaySubmenu}>
               Home
             </button>
           </li>
           <li>
-            <button className='link-btn' >
+            <button className='link-btn' onMouseOver={displaySubmenu}>
               Pages
             </button>
           </li>
           <li>
-            <button className='link-btn' >
+            <button className='link-btn' onMouseOver={displaySubmenu}>
               Blog
             </button>
           </li>
           <li>
-            <button className='link-btn' >
+            <button className='link-btn' onMouseOver={displaySubmenu}>
               About us
             </button>
           </li>
@@ -81,22 +102,28 @@ return (
         
         <ul className="navbar-submenu-links">
               <li>   
-                 <a  onClick={handleClick}><BiShoppingBag size={30}/><span >{carts.length}</span></a>   
+                 <a  onClick={handleClick}>
+                 <IconContext.Provider value={{ size: "1.6rem"}}>
+                 <BsBag />
+                 </IconContext.Provider>
+                 <span ><p>{carts.length}</p></span></a>   
                 </li>
                 <li>
                     <a  className="search" onClick={handleSearch} >
-                      <FaSearch size={30}/>
+                    <IconContext.Provider value={{ size: "2rem"}}>
+                      <AiOutlineSearch/>
+                      </IconContext.Provider>
                     </a>
                 </li>
                 <li>
                     <a onClick={handleSidbar}>
-                        <FcMenu size={30}/>
+                        <AiOutlineMenu size={25}/>
                     </a>
               </li>
               {
                                     !status ?
                                     <li className="after_login">      
-                                           <FaUser size={30}/>
+                                           <AiOutlineUser size={25}/>
                                         <ul className="auth_dropdown">
             
                                             <li><Link to="/login"> Login</Link></li>

@@ -3,10 +3,14 @@ import { Link } from 'react-router-dom';
 import "slick-carousel/slick/slick-theme.css";
 import "slick-carousel/slick/slick.css";
 import Slider from "react-slick";
+import {closeSubmenu } from "../../features/navSettings";
+import { useDispatch} from "react-redux";
 import slides from './data';
 
 
 const Slid = () => {
+  const dispatch = useDispatch();
+  
     let settings = {
         arrows: false,
         dots: true,
@@ -36,9 +40,16 @@ const Slid = () => {
           }
         ]
       };
+
+      const handleSubmenu = (e) => {
+        if (!e.target.classList.contains('link-btn')) {
+          dispatch(closeSubmenu());
+        }
+      };
+
     return (
         <>
-    <section id="slider">
+    <section id="slider" onMouseOver={handleSubmenu}>
       <Slider {...settings}>
       {slides.map((data, index) => (
         <div className={`${data.slide} ${data.bg}`}>
@@ -48,8 +59,8 @@ const Slid = () => {
                 <div className="slider_content">
                 <h5> {data.price}</h5>
                   <h2>{data.title}</h2>
-                  <p>{data.desc}.</p>
-                  <Link to="/shop" className="theme-btn-one bg-black btn_sm">Shop Now</Link>
+                  <p>{data.desc}</p>
+                  <a><Link to="/shop" className="theme-btn-one bg-black btn_sm">Shop Now</Link></a>
                 </div>
               </div>
             </div>

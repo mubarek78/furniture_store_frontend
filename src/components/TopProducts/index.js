@@ -36,12 +36,10 @@ const TopProduct = () => {
         );
       })}
     </div>
-                    {/* <Categories categories={categories} filterItems={filterItems}/> */}
+                   
                 </div>
                 <div className="col-lg-12">
-                    <div className="tabs_el_wrapper">
                         <div className="tab-content">
-                          <div id="new_arrival" className="tab-pane fade show in active">
                               <div className="row">
                                 {menuItems.map((data, index) =>(
                                     <div className="col-lg-3 col-md-4 col-sm-6 col-12" key={index}>
@@ -49,45 +47,7 @@ const TopProduct = () => {
                             </div>
                                 ))}
                               </div>
-                          </div>
-                          {/* <div id="trending" className="tab-pane fade">
-                          <div className="row"> 
-                                {products.slice(0, 5).map((data, index) =>(
-                                      <div className="col-lg-3 col-md-4 col-sm-6 col-12" key={index}>
-                                      <ProductCard data={data} />
-                              </div>
-                                ))}
-                              </div>
-                          </div>
-                          <div id="best_sellers" className="tab-pane fade">
-                          <div className="row">
-                                {products.slice(3, 5).map((data, index) =>(
-                                    <div className="col-lg-3 col-md-4 col-sm-6 col-12" key={index}>
-                                    <ProductCard data={data} />
-                            </div>
-                                ))}
-                              </div>
-                          </div>
-                          <div id="featured" className="tab-pane fade">
-                          <div className="row">
-                                {products.slice(5, 11).map((data, index) =>(
-                                     <div className="col-lg-3 col-md-4 col-sm-6 col-12" key={index}>
-                                     <ProductCard data={data} />
-                             </div>
-                                ))}
-                              </div>
-                          </div>
-                          <div id="on_sall" className="tab-pane fade">
-                          <div className="row">
-                                {products.slice(6, 13).map((data, index) =>(
-                                      <div className="col-lg-3 col-md-4 col-sm-6 col-12" key={index}>
-                                      <ProductCard data={data} />
-                              </div>
-                                ))}
-                              </div>
-                          </div>*/}
                         </div> 
-                    </div>  
                 </div>
             </div>
         </div>

@@ -10,6 +10,10 @@
 @import './shop.css';
 @import './productdetail.css';
 @import './signup.css';
+@import './featurescss.css';
+
+
+
 
 
 
@@ -161,10 +165,3 @@ Variables
     margin-left: auto;
     margin-right: auto;
   }
-
-
-
-  /* Top Product */
-.top_product .product_card {
-    margin: 0px 22px 22px 15px;
-}

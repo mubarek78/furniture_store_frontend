@@ -2,6 +2,10 @@ import React, { useState } from 'react'
 import { Link } from 'react-router-dom'
 import { RatingStar } from "rating-star";
 import { useDispatch } from "react-redux";
+import { AiOutlineHeart, AiOutlineShoppingCart, AiOutlineExpandAlt} from 'react-icons/ai';
+import { BsCartPlus} from 'react-icons/bs';
+
+
 const ProductCard = (props) => {
     let dispatch = useDispatch();
 
@@ -25,13 +29,14 @@ const ProductCard = (props) => {
                     </Link>
                     <div className="product_buttons_box">
                         <ul className="product_buttons_btn">
-                            <li><a href="#" onClick={() => addToFav(props.data.id)} ><i className="fa fa-heart"></i></a></li>
-                            <li><a href="#" onClick={() => addToCart(props.data.id)}><i className="fa fa-cart-plus"></i></a></li>
+                            <li><a href="#" onClick={() => addToFav(props.data.id)} ><AiOutlineHeart size={25}/></a></li>
+                            <li><a href="#" onClick={() => addToCart(props.data.id)}><BsCartPlus size={25}/></a></li>
+                            <li><a href="#" onClick={() => addToCart(props.data.id)}><AiOutlineExpandAlt size={25}/></a></li>
                         </ul>
                     </div>
                 </div>
                 <div className="product_desc_box">
-                    <h5 className="product_title"><Link to={`/product-details/${props.data.id}`}>{props.data.title}</Link></h5>
+                    <Link to={`/product-details/${props.data.id}`}><h5 className="product_title">{props.data.title}</h5></Link>
                         <span className="product_price">${props.data.price}.00</span>
                         <div className="product_rating">
                         <span className="product_rating_num">({props.data.rating.count})</span><RatingStar maxScore={5} rating={props.data.rating.rate} id="rating-star-furniture" />          

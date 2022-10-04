@@ -12,12 +12,12 @@ const settingsSlice = createSlice({
     },
     reducers: {
         openSidebar: (state) => {
-            state.isSidebarOpen = true
+            state.isSidebarOpen = !state.isSidebarOpen
             console.log(state.isSidebarOpen)
           },
 
           closeSidebar: (state) => {
-            state.isSidebarOpen = false
+            state.isSidebarOpen = !state.isSidebarOpen
             console.log(state.isSidebarOpen)
           },
            openSubmenu: (state, action) => {
