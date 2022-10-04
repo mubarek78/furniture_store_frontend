@@ -1,5 +1,9 @@
 import React, { useEffect } from 'react'
 import { Link } from 'react-router-dom'
+import {BsFacebook, BsTwitter, BsLinkedin, BsInstagram, BsGoogle} from 'react-icons/bs';
+import {FaCcPaypal, FaCcVisa, FaCcMastercard, FaApplePay} from 'react-icons/fa';
+
+
 
 
   
@@ -19,19 +23,19 @@ const Footer = () => {
                                 
                                     <ul className='footer_left_icon'>
                                         <li>
-                                            <a href="#!"><i className="fa fa-facebook-f"></i></a>
+                                            <a href="#!"><BsFacebook size={30} /></a>
                                         </li>
                                         <li>
-                                            <a href="#!"><i className="fa fa-twitter"></i></a>
+                                            <a href="#!"><BsTwitter size={30} /></a>
                                         </li>
                                         <li>
-                                            <a href="#!"><i className="fa fa-linkedin"></i></a>
+                                            <a href="#!"><BsLinkedin size={30} /></a>
                                         </li>
                                         <li>
-                                            <a href="#!"><i className="fa fa-instagram"></i></a>
+                                            <a href="#!"><BsInstagram size={30} /></a>
                                         </li>
                                         <li>
-                                            <a href="#!"><i className="fa fa-google"></i></a>
+                                            <a href="#!"><BsGoogle size={30} /></a>
                                         </li>
                                     </ul>
                 
@@ -40,8 +44,9 @@ const Footer = () => {
                         <div className="col-lg-2 col-md-6 col-sm-12 col-12">
                             
                                 <div className="footer_righte">
-                                    <h3>About</h3>
+                                    
                                     <ul>
+                                    <h3>About</h3>
                                         <li>Shop</li>
                                         <li>Delivery</li>
                                         <li>Returns</li>
@@ -53,8 +58,9 @@ const Footer = () => {
                         </div>
                         <div className="col-lg-3 col-md-6 col-sm-12 col-12">
                                 <div className="footer_righte">
-                                    <h3>WHY WE CHOOSE</h3>
+                                    
                                     <ul>
+                                    <h3>WHY WE CHOOSE</h3>
                                        <li>Shipping & Return</li>
                                        <li>Secure Shopping</li>
                                        <li>Gallary</li>
@@ -66,8 +72,9 @@ const Footer = () => {
                         </div>
                         <div className="col-lg-3 col-md-6 col-sm-12 col-12">
                                 <div className="footer_righte">
-                                    <h3>STORE INFORMATION</h3>
+                                    
                                     <ul>
+                                    <h3>STORE INFORMATION</h3>
                                        <li>12675 E Demo Store, Demo Store Co, USA 812404</li>
                                        <li>Call Us: 123-456-7898</li>
                                        <li>Email Us: Support@Duumy.com</li>
@@ -83,16 +90,19 @@ const Footer = () => {
             <section id="footer_bottom">
                 <div className="container">
                     <div className="row">
-                        <div className="col-lg-6 col-md-6 col-sm-6 col-12">
+                        {/* <div className="col-lg-6 col-md-6 col-sm-6 col-12"> */}
                             <div className="footer_bottom_left">
                                 <h6>© CopyRight 2022 <span>myShop</span></h6>
                             </div>
-                        </div>
-                        <div className="col-lg-6 col-md-6 col-sm-6 col-12">
+                        {/* </div> */}
+                        {/* <div className="col-lg-6 col-md-6 col-sm-6 col-12"> */}
                             <div className="footer_bottom_right">
-                                {/* <img src={payment} alt="img" /> */}
+                            <a><FaCcPaypal size={28}/></a>
+                            <a><FaCcVisa size={28}/></a> 
+                           <a><FaCcMastercard size={28}/></a>
+                            <a><FaApplePay size={28}/></a>
                             </div>
-                        </div>
+                        {/* </div> */}
                     </div>
                 </div>
             </section>

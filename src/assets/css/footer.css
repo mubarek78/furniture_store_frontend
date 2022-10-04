@@ -16,11 +16,13 @@
 
 .footer_righte ul {
     padding-top: 15px;
+   
 }
 
 .footer_righte h3 {
     text-transform: uppercase;
     font-size: 20px;
+    text-align: left;
 }
 
 .footer_righte ul li {
@@ -33,7 +35,10 @@
 
 .footer_left_icon {
     display: flex;
-    padding-top: 18px;
+    /* padding-top: 18px; */
+    justify-content: space-evenly;
+    align-items: center;
+    width: 60%;
 }
 
 .footer_left_icon ul li a{
@@ -64,6 +69,9 @@
     background: rgb(216, 216, 216);
     padding: 20px 0
 }
+.footer_bottom_left{
+    width: 50%;
+}
 
 .footer_bottom_left h6 {
     font-size: 16px;
@@ -71,7 +79,11 @@
 }
 
 .footer_bottom_right {
-    text-align: right;
+   width: 50%;
+   text-align: right;
+}
+.footer_bottom_right a{
+    margin-right: 10px;
 }
 
 .footer_bottom_left h6 span {

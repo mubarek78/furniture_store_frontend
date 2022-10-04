@@ -57,24 +57,19 @@ const Shop = () => {
             <section id="shop_section">
                 <div className='filter'>
                 <h4>Search</h4>
-                <div className='search-container'>
-             <FormControl
-              type="search"
-              placeholder="Search a product..."
-              className="search"
-              aria-label="Search"
-              // onChange={(e) => {
-              //   productDispatch({
-              //     type: "FILTER_BY_SEARCH",
-              //     payload: e.target.value,
-              //   });
-              // }}
-              onChange={(e) => {
+            <div id='s' className="App">
+            <label htmlFor="copy-button">
+            <input 
+            type="search"
+            placeholder="Search a product..." 
+            aria-label="search" 
+            onChange={(e) => {
                 dispatch(filterbysearch({ payload: e.target.value }));
               }}
             />
-            <span className='search-icon'><FaSearch size={20}/></span>
-            </div>
+            <a id='icon'><FaSearch size={20}/></a>
+           </label>
+          </div>
         <h4>Sort</h4>
         <div className='form-check'>
         <Form.Check
@@ -84,14 +79,6 @@ const Shop = () => {
         type="radio"
         id={`inline-1`}
         className="inline-1"
-        // onChange={() =>
-        //   productDispatch({
-        //     type: "SORT_BY_PRICE",
-        //     payload: "lowToHigh",
-        //   })
-        // }
-        // checked={sort === "lowToHigh" ? true : false}
-
         onChange={() => {
           dispatch(sortbyprice({ sort: "lowToHigh" }));
         }}
@@ -110,7 +97,9 @@ const Shop = () => {
         }}
       />
     </div>
+    
      <h4>Out of stock</h4>
+     <div className='form-check'>
       <Form.Check
         inline
         label="Include Out of Stock"
@@ -123,7 +112,9 @@ const Shop = () => {
 
         // checked={byStock}
       />
+      </div>
       <h4>Fast delivery</h4>
+      <div className='form-check'>
       <Form.Check
         inline
         label="Fast Delivery Only"
@@ -135,6 +126,7 @@ const Shop = () => {
         }}
         // checked={byFastDelivery}
       />
+      </div>
                 </div>
                 <div className="container">
                     <div className="row">
