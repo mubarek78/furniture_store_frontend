@@ -1,7 +1,7 @@
 import React from 'react'
 import ProductCard from '../Product/ProductCard'
 import { useSelector } from "react-redux";
-// import Heading from '../../Fashion/Heading'
+
 const RelatedProduct = () => {
     let products = useSelector((state) => state.products.products);
     return (

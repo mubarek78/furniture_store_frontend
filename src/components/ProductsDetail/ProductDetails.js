@@ -1,6 +1,7 @@
 import React, { useState } from 'react'
 import { useSelector, useDispatch } from "react-redux";
 import RelatedProduct from './RelatedProduct'
+import ProductInfo from './ProductInfo';
 import { useParams } from 'react-router-dom';
 import { FaPlus, FaMinus, FaRegHeart, FaShoppingCart} from 'react-icons/fa';
 import { Link } from 'react-router-dom'
@@ -107,6 +108,7 @@ const ProductDetails = () => {
                     </div>
                 </div>
             </section>
+            <ProductInfo />
             <RelatedProduct />
         </>
     )
