@@ -254,6 +254,7 @@
   
   .navbar-submenu-links li a {
   position: relative;
+  z-index: 33333;
   }
   
   .navbar-submenu-links li a span {
@@ -294,7 +295,7 @@
   
   }
   
-  .after_login:hover .auth_dropdown {
+  .loggedin:hover .auth_dropdown {
     visibility: visible;
     opacity: 1;
     width: 120px;
@@ -303,9 +304,12 @@
   }
   
   
-  .after_login img {
+  .loggedin img{
+    width: 45px;
+    height: 45px;
     border-radius: 50%;
     background: #f79837;
+    margin-left: 15px;
   }
 
 

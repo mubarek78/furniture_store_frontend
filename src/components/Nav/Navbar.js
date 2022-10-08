@@ -3,14 +3,14 @@ import logo from './../../assets/image/svg/logo.svg';
 import { Link } from 'react-router-dom'
 import { useNavigate } from "react-router-dom"
 import { IconContext} from 'react-icons';
-import { FaUser, FaSearch, FaTimes} from 'react-icons/fa';
+import { FaAngleDown, FaUser, FaSearch, FaTimes} from 'react-icons/fa';
 import { FcMenu} from 'react-icons/fc';
 import { AiOutlineSearch, AiOutlineUser, AiOutlineMenu} from 'react-icons/ai';
 
 import { BsBag} from 'react-icons/bs';
 import { removeCart, removeFav} from "../../features/products" ;
 import svgsearch from './../../assets/image/svg/search.svg'
-import avater from './../../assets/image/svg/search.svg'
+import avater from './../../assets/image/svg/avatar.png';
 import { useDispatch, useSelector } from "react-redux";
 import { openSidebar, openSubmenu, closeSubmenu } from "../../features/navSettings";
 
@@ -36,7 +36,7 @@ const Navbar = () => {
 
   const handleClick = () => {
    console.log("clicked")
-  //  dispatch(openSidebar());
+   dispatch(openSidebar());
 }
 
 
@@ -76,7 +76,10 @@ return (
         <div className='nav-header'>
           <img src={logo} className='nav-logo' alt='' />
         </div>
-      
+        <ul>
+        
+        </ul>
+       
         <ul className='nav-links'>
           <li>
             <button className='link-btn' onMouseOver={displaySubmenu}>
@@ -102,11 +105,10 @@ return (
         
         <ul className="navbar-submenu-links">
               <li>   
-                 <a  onClick={handleClick}>
-                 <IconContext.Provider value={{ size: "1.6rem"}}>
-                 <BsBag />
-                 </IconContext.Provider>
-                 <span ><p>{carts.length}</p></span></a>   
+                 <a onClick={handleClick} >
+                 <BsBag size={25}/>
+                 <span ><p>{carts.length}</p></span>
+                 </a>   
                 </li>
                 <li>
                     <a  className="search" onClick={handleSearch} >
@@ -122,7 +124,7 @@ return (
               </li>
               {
                                     !status ?
-                                    <li className="after_login">      
+                                    <li className="loggedin">      
                                            <AiOutlineUser size={25}/>
                                         <ul className="auth_dropdown">
             
@@ -132,7 +134,7 @@ return (
                                     </li>
                                         
                                         :
-                                            <li className="after_login"><img src={avater} alt="avater" /> {user.name || 'Mubarek Sh'} <i className="fa fa-angle-down"></i>
+                                            <li className="loggedin"><img src={avater} alt="avater" />{user.username || 'Mubarek Sh'} <FaAngleDown size={10}/>
                                                 <ul className="auth_dropdown">
                                                     <li><Link to="/my-account/auther-order"><i className="fa fa-cubes"></i> My Orders</Link></li>
                                                     <li><Link to="#!" onClick={() => { logout() }} ><i className="fa fa-sign-out"></i> Logout</Link></li>

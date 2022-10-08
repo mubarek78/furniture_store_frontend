@@ -1,8 +1,21 @@
 import React, { useState } from "react";
 // import "./app.css";
 import FormInput from "../Signup/FormInput";
+import { useDispatch, useSelector } from "react-redux";
+import { useNavigate } from "react-router-dom";
+import { login } from "../../features/user";
 
-const Login = ({ setUser }) => {
+const Login = () => {
+  const navigate = useNavigate();
+  const dispatch = useDispatch();
+
+  const hundleResource = (user) =>{
+    // setUser(user)
+    dispatch(login({type: 'user/login', payload: user}));
+    navigate("/");
+    // console.log(user)
+  }
+
   const [values, setValues] = useState({
     username: "",
     password: "",
@@ -45,7 +58,7 @@ const Login = ({ setUser }) => {
         }),
       }).then((r) => {
         if (r.ok) {
-          r.json().then((user) => setUser(user));
+          r.json().then((user) => hundleResource(user));
         }
       });
   };

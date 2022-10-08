@@ -4,9 +4,18 @@ import prodata from './data'
 import ReactStars from "react-rating-stars-component";
 import FormInput from "./FormInput";
 
-const ProductInfo = ({ setUser }) => {
+const ProductInfo = ({ setReviews }) => {
   const [jobs, setJobs] = useState(prodata)
   const [value, setValue] = useState(0)
+  const [rev, setRev] = useState("")
+
+  var today = new Date();
+var dd = String(today.getDate()).padStart(2, '0');
+var mm = String(today.getMonth() + 1).padStart(2, '0'); //January is 0!
+var yyyy = today.getFullYear();
+
+today = mm + '/' + dd + '/' + yyyy;
+console.log(today)
 
      // Rating star
      const firstExample = {
@@ -46,19 +55,21 @@ const ProductInfo = ({ setUser }) => {
 
   const handleSubmit = (e) => {
     e.preventDefault();
-    fetch("/signup", {
+    fetch("/reviews", {
         method: "POST",
         headers: {
           "Content-Type": "application/json",
         },
         body: JSON.stringify({
-          username: values.username,
-          password: values.password,
-          password_confirmation: values.confirmPassword,
+          user_id: 1,
+          product_id: 1,
+          comment: rev,
+          reviewed_at: 0,
+          rating: 4.9
         }),
       }).then((r) => {
         if (r.ok) {
-          r.json().then((user) => setUser(user));
+          r.json().then((review) => console.log(review));
         }
       });
   };
@@ -126,7 +137,7 @@ const ProductInfo = ({ setUser }) => {
           />
         ))}
         </div>
-        <textarea placeholder='Message' id="w3review" name="w3review" rows="8" cols="59"></textarea>
+        <textarea placeholder='Message' id="w3review" name="review" onChange={(e) => setRev(e.target.value)} rows="8" cols="59"></textarea>
         <button>Submit</button>
       </form>
     </div>

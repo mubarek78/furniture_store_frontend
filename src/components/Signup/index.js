@@ -1,13 +1,30 @@
-import { useState } from "react";
+import React, { useState } from "react";
 // import "./app.css";
 import FormInput from "./FormInput";
+import { useNavigate } from "react-router-dom";
+import { useDispatch, useSelector } from "react-redux";
+import { signup } from "../../features/user";
 
-const Signup = ({ setUser }) => {
+
+
+const Signup = () => {
+  // const [user, setUser] = useState(null);
+  // const status = useSelector((state) => state.user.status);
+  // const user = useSelector((state) => state.user.user);
+  const navigate = useNavigate();
+  const dispatch = useDispatch();
+
+  const hundleResource = (user) =>{
+    // setUser(user)
+    dispatch(signup({type: 'user/signup', payload: user}));
+    navigate("/");
+    // console.log(user)
+  }
   const [values, setValues] = useState({
     username: "",
     email: "",
-    birthday: "",
     password: "",
+    phone: "",
     confirmPassword: "",
   });
 
@@ -31,13 +48,6 @@ const Signup = ({ setUser }) => {
       errorMessage: "It should be a valid email address!",
       label: "Email",
       required: true,
-    },
-    {
-      id: 3,
-      name: "birthday",
-      type: "date",
-      placeholder: "Birthday",
-      label: "Birthday",
     },
     {
       id: 4,
@@ -71,12 +81,13 @@ const Signup = ({ setUser }) => {
         },
         body: JSON.stringify({
           username: values.username,
+          email: values.email,
           password: values.password,
           password_confirmation: values.confirmPassword,
         }),
       }).then((r) => {
         if (r.ok) {
-          r.json().then((user) => setUser(user));
+          r.json().then((user) => hundleResource(user));
         }
       });
   };
