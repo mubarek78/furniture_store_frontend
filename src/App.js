@@ -1,4 +1,4 @@
-import React, { useState, Component } from 'react';
+import React, { useEffect } from 'react';
 import logo from './logo.svg';
 import './App.css';
 import Home from './pages/Home';
@@ -7,30 +7,34 @@ import Login from './pages/login';
 import Signup from './pages/signup';
 import Productdetail from './pages/productdetail';
 import {BrowserRouter, Routes, Route} from "react-router-dom";
+import { useDispatch, useSelector } from "react-redux";
 import ShopPage from './pages/shop';
+import { signup } from "./features/user";
 
 function App() {
-  const [user, setUser] = useState(null);
+  const dispatch = useDispatch();
+  const hundleResource = (user) =>{
+    dispatch(signup({type: 'user/signup', payload: user}));
 
-  // useEffect(() => {
-  //   // auto-login
-  //   fetch("/me").then((r) => {
-  //     if (r.ok) {
-  //       r.json().then((user) => setUser(user));
-  //     }
-  //   });
-  // }, []);
-
+  }
+ 
+  useEffect(() => {
+    fetch("/me").then((response) => {
+      if (response.ok) {
+        response.json().then((user) => hundleResource(user));
+      }
+    });
+  }, []);
 
   return (
     <BrowserRouter>
     <Routes>
     <Route path="/" element={<Home />}/>
-    <Route path="/login" element={<Login setUser={setUser} />}/> 
-    <Route path="/signup" element={<Signup setUser={setUser} />}/> 
+    <Route path="/login" element={<Login />}/> 
+    <Route path="/signup" element={<Signup />}/> 
     <Route path="/cart" element={<Cart />}/>
     <Route path="/shop" element={<ShopPage />}/>
-    <Route path='/product-details/:id' element={<Productdetail setUser={setUser}/>}/>
+    <Route path='/product-details/:id' element={<Productdetail/>}/>
       </Routes>
     </BrowserRouter>
   );

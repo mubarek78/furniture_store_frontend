@@ -11,9 +11,10 @@ const userSlice = createSlice({
          // Signup
          signup: (state, action) => {
             
-            let { username, email, password_digest} = action.payload.payload;
+            let {id, username, email, password_digest} = action.payload.payload;
             state.status = true
-            state.user = {username, 
+            state.user = {id,
+                          username, 
                           email,
                           password: password_digest
             }
@@ -22,9 +23,9 @@ const userSlice = createSlice({
         },
         // Login
         login: (state, action) => {
-            let { username, password_digest} = action.payload.payload;
+            let { username, email, password_digest} = action.payload.payload;
             state.status = true
-            state.user = {username, password: password_digest}
+            state.user = {username, email, password: password_digest}
             
         },
        

@@ -27,8 +27,15 @@ const Navbar = () => {
 
   const isSidebarOpen = useSelector((state) => state.settings.isSidebarOpen);
 
-
+  function handleLogout() {
+    fetch("/logout", {
+      method: "DELETE",
+    })
+  }
   const logout = () => {
+    fetch("/logout", {
+      method: "DELETE",
+    }).then(() => console.log("logged out"));
     dispatch({ type: "user/logout" })
     navigate("/login");
 }

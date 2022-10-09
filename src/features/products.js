@@ -18,9 +18,10 @@ const productsSlice = createSlice({
         // Get Single Product
         getProductById: (state, action) => {
             let { id } = action.payload;
+            console.log(id)
             let arr = state.products.find(item => item.id == parseInt(id))
-            state.single = ProductData[1]
-            console.log(state.single)
+            state.single = arr
+        
             
         },
         // Add to Cart

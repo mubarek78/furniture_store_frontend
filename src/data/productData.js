@@ -31,7 +31,7 @@ import fimg24 from '../assets/image/product/sofa24.jpg'
 export const ProductData = [
     // furniture data
     {
-        id: 11,
+        id: 1,
         labels: "Popular",
         category: "BEST SELLERS",
         img: fimg1,
@@ -65,7 +65,7 @@ export const ProductData = [
         ]
     },
     {
-        id: 12,
+        id: 2,
         labels: "Popular",
         category: "FEATUREDS",
         img: fimg2,
@@ -99,7 +99,7 @@ export const ProductData = [
         ]
     },
     {
-        id: 13,
+        id: 3,
         labels: "Popular",
         category: "FEATURED",
         img: fimg21,
@@ -133,7 +133,7 @@ export const ProductData = [
         ]
     },
     {
-        id: 14,
+        id: 4,
         labels: "Popular",
         category: "NEW ARRIVAL",
         img: fimg4,
@@ -167,7 +167,7 @@ export const ProductData = [
         ]
     },
     {
-        id: 15,
+        id: 5,
         labels: "Up coming",
         category: "NEW ARRIVAL",
         img: fimg5,
@@ -201,7 +201,7 @@ export const ProductData = [
         ]
     },
     {
-        id: 16,
+        id: 6,
         labels: "Popular",
         category: "NEW ARRIVAL",
         img: fimg6,
@@ -235,7 +235,7 @@ export const ProductData = [
         ]
     },
     {
-        id: 17,
+        id: 7,
         labels: "Best Seller",
         category: "SALE ITEMS",
         img: fimg7,
@@ -269,7 +269,7 @@ export const ProductData = [
         ]
     },
     {
-        id: 18,
+        id: 8,
         labels: "On sell",
         category: "BEST PRODUCTS",
         img: fimg8,
@@ -303,7 +303,7 @@ export const ProductData = [
         ]
     },
     {
-        id: 19,
+        id: 9,
         labels: "Popular",
         category: "BEST PRODUCTS",
         img: fimg9,
@@ -338,7 +338,7 @@ export const ProductData = [
         ]
     },
     {
-        id: 20,
+        id: 10,
         labels: "New Arrival",
         category: "BEST SELLERS",
         img: fimg10,

@@ -31,7 +31,9 @@ const ProductCard = (props) => {
                         <ul className="product_buttons_btn">
                             <li><a href="#" onClick={() => addToFav(props.data.id)} ><AiOutlineHeart size={25}/></a></li>
                             <li><a href="#" onClick={() => addToCart(props.data.id)}><BsCartPlus size={25}/></a></li>
+                            <Link to={`/product-details/${props.data.id}`}>
                             <li><a href="#" onClick={() => addToCart(props.data.id)}><AiOutlineExpandAlt size={25}/></a></li>
+                            </Link>
                         </ul>
                     </div>
                 </div>

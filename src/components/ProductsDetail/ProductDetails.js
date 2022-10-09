@@ -8,12 +8,13 @@ import { Link } from 'react-router-dom'
 import ReactStars from "react-rating-stars-component";
 
 
-const ProductDetails = ({ setUser }) => {
+
+const ProductDetails = () => {
     let dispatch = useDispatch();
     let { id } = useParams();
-    let {setReviews, review} = useState([])
     dispatch({ type: "products/getProductById", payload: { id } });
     let product = useSelector((state) => state.products.single);
+   
    
 
  
@@ -109,7 +110,7 @@ const ProductDetails = ({ setUser }) => {
                     </div>
                 </div>
             </section>
-            <ProductInfo setReviews={setReviews} />
+            <ProductInfo />
             <RelatedProduct />
         </>
     )

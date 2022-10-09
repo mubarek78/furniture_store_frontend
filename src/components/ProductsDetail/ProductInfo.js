@@ -1,14 +1,25 @@
 import React, { useState, useEffect } from 'react'
+import { useSelector, useDispatch } from "react-redux";
 import { FaAngleDoubleRight } from 'react-icons/fa'
 import prodata from './data'
 import ReactStars from "react-rating-stars-component";
 import FormInput from "./FormInput";
 
-const ProductInfo = ({ setReviews }) => {
+
+const ProductInfo = () => {
+  // const dispatch = useDispatch();
   const [jobs, setJobs] = useState(prodata)
   const [value, setValue] = useState(0)
   const [rev, setRev] = useState("")
-
+  let   [rate, setRate] = useState(5)
+  const status = useSelector((state) => state.user.status);
+  const user = useSelector((state) => state.user.user);
+  let Id = useSelector((state) => state.products.single.id);
+  console.log(Id)
+  let [error, setError] = useState("")
+  console.log(user)
+  console.log(Id)
+  
   var today = new Date();
 var dd = String(today.getDate()).padStart(2, '0');
 var mm = String(today.getMonth() + 1).padStart(2, '0'); //January is 0!
@@ -21,14 +32,21 @@ console.log(today)
      const firstExample = {
         size: 20,
         value: 5,
-        edit: true
+        edit: true,
+        starCount: {value},
+        onChange: newValue => {
+           setRate(newValue)
+           console.log(rate)
+        }
       };
+     
 
-  const { tabs, dates, duties, title } = jobs[value]
+  // const { tabs, dates, duties, title } = jobs[value]
 
   const [values, setValues] = useState({
-    username: "",
-    email: "",
+    username: user.username,
+    email: user.email,
+    errorMessage: "eror"
   });
 
   const inputs = [
@@ -37,48 +55,45 @@ console.log(today)
       name: "username",
       type: "text",
       placeholder: "Username",
-    //   errorMessage:
-    //     "Username should be 3-16 characters and shouldn't include any special character!",
-      pattern: "^[A-Za-z0-9]{3,16}$",
-      required: true,
-    },
+      pattern: status == true,
+      value: user.username
+      },
     {
       id: 2,
       name: "email",
       type: "email",
       placeholder: "Email",
-    //   errorMessage: "It should be a valid email address!",
-      required: true,
-    },
+      value: user.email
+      },
 
   ];
 
   const handleSubmit = (e) => {
     e.preventDefault();
-    fetch("/reviews", {
+   status ? (fetch("/reviews", {
         method: "POST",
         headers: {
           "Content-Type": "application/json",
         },
         body: JSON.stringify({
-          user_id: 1,
-          product_id: 1,
+          user_id: user.id,
+          product_id: Id,
           comment: rev,
           reviewed_at: 0,
-          rating: 4.9
+          rating: rate
         }),
       }).then((r) => {
         if (r.ok) {
           r.json().then((review) => console.log(review));
         }
-      });
+      })): setError("Please Register or login first to review this product")
   };
 
-  const onChange = (e) => {
-    setValues({ ...values, [e.target.name]: e.target.value });
-    console.log(values)
-  };
-
+ 
+  // const onChange = (e) => {
+  //   setValues({ ...values, [e.target.name]: e.target.value });
+  //   console.log(values)
+  // };
 
   return (
     <section className="section">
@@ -93,7 +108,6 @@ console.log(today)
             return (
               <button
                 key={item.id}
-                onClick={() => setValue(index)}
                 className={`job-btn ${index === value && 'active-btn'}`}
               >
                 {item.tabs}
@@ -101,20 +115,7 @@ console.log(today)
             )
           })}
         </div>
-        {/* job info */}
-        {/* <article className="job-info">
-          <h3>{title}</h3>
-          <h4>{tabs}</h4>
-          <p className="job-date">{dates}</p>
-          {duties.map((duty, index) => {
-            return (
-              <div key={index} className="job-desc">
-                <FaAngleDoubleRight className="job-icon"></FaAngleDoubleRight>
-                <p>{duty}</p>
-              </div>
-            )
-          })}
-        </article>*/}
+ 
         <div className='review'>
            <div className='reviews'>
                <h1>Reviews</h1>
@@ -132,12 +133,11 @@ console.log(today)
                 <FormInput
                 key={input.id}
                 {...input}
-                value={values[input.name]}
-                onChange={onChange}
           />
         ))}
         </div>
         <textarea placeholder='Message' id="w3review" name="review" onChange={(e) => setRev(e.target.value)} rows="8" cols="59"></textarea>
+        <p>{error}</p>
         <button>Submit</button>
       </form>
     </div>
