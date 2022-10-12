@@ -1,13 +1,14 @@
+import React, {useEffect, useState} from "react";
 import {createSlice} from "@reduxjs/toolkit";
 // Demo Data
 import { ProductData } from '../data/productData'
-
 
 
 // Product Slice
 const productsSlice = createSlice({
     name: 'products',
     initialState: {
+        products1: [],
         products: ProductData,
         carts: ProductData.slice(3,7),
         favorites: ProductData.slice(8,12),
@@ -15,8 +16,24 @@ const productsSlice = createSlice({
         single:null,
     },
     reducers: {
+                 // fetch
+                 fetchData: (state, action) => {
+            
+                    // let {id, username, email, password_digest} = action.payload.payload;
+                  
+                    // state.user = {id,
+                    //               username, 
+                    //               email,
+                    //               password: password_digest
+                    // }
+                    state.products1 = action.payload.payload
+                    console.log(state.products1)
+                   
+                },
         // Get Single Product
         getProductById: (state, action) => {
+            // const {id, img, title, price, group, description, rating, reviews} = action.payload;
+            // console.log({id,img, title, price, group, description, rating, reviews})
             let { id } = action.payload;
             console.log(id)
             let arr = state.products.find(item => item.id == parseInt(id))
@@ -85,9 +102,11 @@ const productsSlice = createSlice({
             
         },
     }
+
+    
 })
 
 
-export const { getProductById, addToCart, addToComp, addToFav, updateCart, removeCart, delCompare, clearCart, removeFav } = productsSlice.actions;
+export const {fetchData, getProductById, addToCart, addToComp, addToFav, updateCart, removeCart, delCompare, clearCart, removeFav } = productsSlice.actions;
 const productsReducer = productsSlice.reducer
 export default productsReducer

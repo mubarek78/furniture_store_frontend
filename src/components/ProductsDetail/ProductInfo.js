@@ -1,32 +1,37 @@
 import React, { useState, useEffect } from 'react'
 import { useSelector, useDispatch } from "react-redux";
-import { FaAngleDoubleRight } from 'react-icons/fa'
-import prodata from './data'
+import { FaAngleDoubleRight } from 'react-icons/fa';
+import { useParams } from "react-router-dom";
+import prodata from './data';
 import ReactStars from "react-rating-stars-component";
 import FormInput from "./FormInput";
 
 
-const ProductInfo = () => {
+const ProductInfo = ({reviews}) => {
   // const dispatch = useDispatch();
   const [jobs, setJobs] = useState(prodata)
   const [value, setValue] = useState(0)
   const [rev, setRev] = useState("")
+  const [isEditing, setIsEditing] = useState(false)
   let   [rate, setRate] = useState(5)
+  // const [userReviews, setUserReviews] = useState("")
   const status = useSelector((state) => state.user.status);
   const user = useSelector((state) => state.user.user);
   let Id = useSelector((state) => state.products.single.id);
-  console.log(Id)
+  const { id } = useParams();
+  // console.log(id)
+  // console.log(Id)
   let [error, setError] = useState("")
-  console.log(user)
-  console.log(Id)
+  // console.log(user)
+  // console.log(Id)
   
-  var today = new Date();
-var dd = String(today.getDate()).padStart(2, '0');
-var mm = String(today.getMonth() + 1).padStart(2, '0'); //January is 0!
-var yyyy = today.getFullYear();
+//   var today = new Date();
+// var dd = String(today.getDate()).padStart(2, '0');
+// var mm = String(today.getMonth() + 1).padStart(2, '0'); //January is 0!
+// var yyyy = today.getFullYear();
 
-today = mm + '/' + dd + '/' + yyyy;
-console.log(today)
+// today = mm + '/' + dd + '/' + yyyy;
+// console.log(today)
 
      // Rating star
      const firstExample = {
@@ -68,9 +73,27 @@ console.log(today)
 
   ];
 
+
+
+
   const handleSubmit = (e) => {
     e.preventDefault();
-   status ? (fetch("/reviews", {
+    if(isEditing){
+      fetch(`/reviews/${11}`, {
+        method: "PATCH",
+        headers: {
+          "Content-Type": "application/json",
+        },
+        body: JSON.stringify({comment: rev}),
+      })
+        .then((r) => r.json())
+        .then((updatedReview) => {
+          console.log(updatedReview);
+        });
+        // setIsEditing(false)
+        // setRev("")
+    }else{
+      status ? (fetch("/reviews", {
         method: "POST",
         headers: {
           "Content-Type": "application/json",
@@ -87,9 +110,49 @@ console.log(today)
           r.json().then((review) => console.log(review));
         }
       })): setError("Please Register or login first to review this product")
+
+    }
+   
   };
 
- 
+  function handleDeleteClick(id) {
+    fetch(`/reviews/${id}`, {
+      method: "DELETE",
+    }).then((r) => {
+      if (r.ok) {
+        console.log(id);
+      }
+    });
+  }
+
+  function handleEdit(id) {
+    let revi = reviews.find((review) => review.id == id)
+    console.log(reviews)
+    console.log(revi)
+    setIsEditing(true)
+    isEditing && setRev(revi.comment)
+    console.log(id)
+    
+  
+  }
+
+  function handleEditFetch(id) {  
+    fetch(`/reviews/${id}`, {
+      method: "PATCH",
+      headers: {
+        "Content-Type": "application/json",
+      },
+      body: JSON.stringify({ comment: rev }),
+    })
+      .then((r) => r.json())
+      .then((updatedReview) => {
+        console.log(updatedReview);
+      });
+  }
+  // function handleDeletePlant(id) {
+  //   const updatedPlantsArray = plants.filter((plant) => plant.id !== id);
+  //   setPlants(updatedPlantsArray);
+  // }
   // const onChange = (e) => {
   //   setValues({ ...values, [e.target.name]: e.target.value });
   //   console.log(values)
@@ -118,7 +181,22 @@ console.log(today)
  
         <div className='review'>
            <div className='reviews'>
-               <h1>Reviews</h1>
+           {reviews.map((review, index) => {
+             let {id, user_id, comment, rating} = review
+            return (  
+              <>
+               <h1 key={index}>{user_id}</h1>
+               <h6>{comment}</h6>
+               <h6>{rating}</h6>
+               {user.id == user_id && 
+               <div>
+               <button onClick={() => handleDeleteClick(id)}>Delete</button>
+               <button onClick={() => handleEdit(id)}>Edit</button>
+               </div>
+               }
+               </>
+               )
+          })}
            </div>
            <div className='add-review'>
                <h6>Add a Review</h6>
@@ -136,7 +214,7 @@ console.log(today)
           />
         ))}
         </div>
-        <textarea placeholder='Message' id="w3review" name="review" onChange={(e) => setRev(e.target.value)} rows="8" cols="59"></textarea>
+        <textarea placeholder='Message' id="w3review" name="review" value={rev} onChange={(e) => setRev(e.target.value)} rows="8" cols="59"></textarea>
         <p>{error}</p>
         <button>Submit</button>
       </form>

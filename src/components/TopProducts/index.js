@@ -6,14 +6,12 @@ import items from './data';
 
 
 const TopProduct = () => {
-    let products = useSelector((state) => state.products.products);
+    let products = useSelector((state) => state.products.products1);
     const [menuItems, setMenuItems] = useState(products);
 
     const filterItems = (category) => {
-        console.log(category)
-        const newItems = products.filter((item) => item.category == category);
+        const newItems = products.filter((item) => item.group == category);
         setMenuItems(newItems);
-        console.log(menuItems)
       };
       
     return (

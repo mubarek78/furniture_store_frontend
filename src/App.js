@@ -10,6 +10,8 @@ import {BrowserRouter, Routes, Route} from "react-router-dom";
 import { useDispatch, useSelector } from "react-redux";
 import ShopPage from './pages/shop';
 import { signup } from "./features/user";
+import { fetchData } from "./features/products";
+import prodata from './components/ProductsDetail/data';
 
 function App() {
   const dispatch = useDispatch();
@@ -17,6 +19,19 @@ function App() {
     dispatch(signup({type: 'user/signup', payload: user}));
 
   }
+  const hundleFecth = (product) =>{
+    // console.log(product)
+    dispatch(fetchData({type: 'products/fetchData', payload: product}));
+
+  }
+
+  useEffect(() => {
+    fetch("/products").then((response) => {
+      if (response.ok) {
+        response.json().then((product) => hundleFecth(product));
+      }
+    });
+  });
  
   useEffect(() => {
     fetch("/me").then((response) => {
@@ -25,6 +40,8 @@ function App() {
       }
     });
   }, []);
+
+ 
 
   return (
     <BrowserRouter>

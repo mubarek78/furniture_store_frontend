@@ -6,7 +6,7 @@ import ProductCard from '../Product/ProductCard';
 import { useSelector } from "react-redux";
 
 const PopularProduct = () => {
-  let products = useSelector((state) => state.products.products);
+  let products = useSelector((state) => state.products.products1);
 //   products = products.filter(item => item.category === 'furniture')
 
     let settings = {

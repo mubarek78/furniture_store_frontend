@@ -12,9 +12,9 @@ const Shop = () => {
     let byStock = filter.byStock;
     let FastDelivery = filter.byFastDelivery;
     let searchQuery = filter.filterbysearch;
-    const [products, setProducts] = useState(useSelector((state) => state.products.products))
+    const [products, setProducts] = useState(useSelector((state) => state.products.products1))
     const [page, setPage] = useState(1)
-    let allData = [...useSelector((state) => state.products.products)];
+    let allData = [...useSelector((state) => state.products.products1)];
 
     const randProduct = (page) => {
         if (page) {

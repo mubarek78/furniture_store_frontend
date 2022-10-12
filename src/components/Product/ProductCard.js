@@ -9,6 +9,7 @@ import { BsCartPlus} from 'react-icons/bs';
 const ProductCard = (props) => {
     let dispatch = useDispatch();
 
+
     // Add to cart
     const addToCart = async (id) => {
         dispatch({ type: "products/addToCart", payload: { id } })
@@ -38,10 +39,10 @@ const ProductCard = (props) => {
                     </div>
                 </div>
                 <div className="product_desc_box">
-                    <Link to={`/product-details/${props.data.id}`}><h5 className="product_title">{props.data.title}</h5></Link>
+                    <Link to={`/product-details/${props.data.id}`}><a><h5 className="product_title">{props.data.title}</h5></a></Link>
                         <span className="product_price">${props.data.price}.00</span>
                         <div className="product_rating">
-                        <span className="product_rating_num">({props.data.rating.count})</span><RatingStar maxScore={5} rating={props.data.rating.rate} id="rating-star-furniture" />          
+                        <span className="product_rating_num">({props.data.price-87})</span><RatingStar maxScore={5} rating={props.data.rating} id="rating-star-furniture" />          
                     </div>
                     
                 </div>

@@ -1,11 +1,11 @@
 const catag = [
     {
       id: 1,
-      category: "New Arrival",
+      category: "NEW ARRIVAL",
     },
     {
       id: 2,
-      category: "Best Sellers",
+      category: "BEST SELLERS",
       
     },
     {
@@ -15,7 +15,7 @@ const catag = [
     },
     {
       id: 4,
-      category: "Featured",
+      category: "FEATUREDS",
      
     },
     {
