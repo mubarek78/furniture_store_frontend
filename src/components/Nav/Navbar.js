@@ -154,10 +154,12 @@ return (
    </div>
 
    <div className={`${
-        isSidebarOpen ? 'navbar-cart navshow' : 'navbar-cart'
+        isSidebarOpen ? 'navbar-cart navbarshow' : 'navbar-cart'
       }`}>
 {carts.map((data, index) => (
-<div className="single">
+<div className={`${
+        isSidebarOpen ? 'single singleshow' : 'single'
+      }`}>
 <div className="image">
 <img className='im' src={data.img} alt="img"/>
 </div>
@@ -173,6 +175,9 @@ return (
 
    </div>
    ))}
+   
+   <Link to={'/cart'}><button className='navButton'>View cart</button></Link>
+   <button className='navButton'>Checkout</button>
    </div>
 </nav>
 </>

@@ -149,14 +149,7 @@ const ProductInfo = ({reviews}) => {
         console.log(updatedReview);
       });
   }
-  // function handleDeletePlant(id) {
-  //   const updatedPlantsArray = plants.filter((plant) => plant.id !== id);
-  //   setPlants(updatedPlantsArray);
-  // }
-  // const onChange = (e) => {
-  //   setValues({ ...values, [e.target.name]: e.target.value });
-  //   console.log(values)
-  // };
+ 
 
   return (
     <section className="section">
@@ -222,9 +215,6 @@ const ProductInfo = ({reviews}) => {
            </div>
         </div>
       </div>
-      <button type="button" className="btn">
-        more info
-      </button> 
     </section>
   )
 }

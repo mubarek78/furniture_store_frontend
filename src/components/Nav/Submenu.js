@@ -9,11 +9,7 @@ const Submenu = () => {
   const page = useSelector((state) => state.settings.page.page);
   const links = useSelector((state) => state.settings.page.links);
   console.log(page)
-  // const {
-  //   isSubmenuOpen,
-  //   page: { page, links },
-  //   location,
-  // } = useGlobalContext()
+ 
   const container = useRef(null)
   const [columns, setColumns] = useState('col-2')
   useEffect(() => {

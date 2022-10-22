@@ -1,5 +1,4 @@
 import React, { useState } from "react";
-// import "./app.css";
 import FormInput from "./FormInput";
 import { useNavigate } from "react-router-dom";
 import { useDispatch, useSelector } from "react-redux";
@@ -8,14 +7,12 @@ import { signup } from "../../features/user";
 
 
 const Signup = () => {
-  // const [user, setUser] = useState(null);
-  // const status = useSelector((state) => state.user.status);
-  // const user = useSelector((state) => state.user.user);
+ 
   const navigate = useNavigate();
   const dispatch = useDispatch();
 
   const hundleResource = (user) =>{
-    // setUser(user)
+    
     dispatch(signup({type: 'user/signup', payload: user}));
     navigate("/");
     // console.log(user)

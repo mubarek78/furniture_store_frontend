@@ -2,7 +2,7 @@ import React, {useState} from 'react'
 import ProductCard from '../Product/ProductCard';
 import { useSelector } from "react-redux";
 import items from './data';
-// import Categories from './Categories';
+
 
 
 const TopProduct = () => {
