@@ -90,7 +90,7 @@ const Footer = () => {
             <section id="footer_bottom">
                 <div className="container">
                     <div className="row">
-                        {/* <div className="col-lg-6 col-md-6 col-sm-6 col-12"> */}
+                       
                             <div className="footer_bottom_left">
                                 <h6>© CopyRight 2022 <span>myShop</span></h6>
                             </div>
@@ -102,7 +102,7 @@ const Footer = () => {
                            <a><FaCcMastercard size={28}/></a>
                             <a><FaApplePay size={28}/></a>
                             </div>
-                        {/* </div> */}
+                        
                     </div>
                 </div>
             </section>
